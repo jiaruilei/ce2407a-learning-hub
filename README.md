@@ -28,8 +28,6 @@ The existing digital tutorials remain independent applications. Open a full set 
 
 [Previous exams](https://jiaruilei.github.io/ce2407a-learning-hub/index.html#/exams) links four Semester 1 papers (AY2021/22 through AY2024/25) and their shared numerical solutions PDF in [Canvas](https://canvas.nus.edu.sg/courses/93981/files/folder/Past%20year%20exam%20questions). Choose a paper, open the original and record your work by question. Notes and review marks stay in your browser.
 
-For answer checks and worked steps, download the [course practice pack on Canvas](https://canvas.nus.edu.sg/courses/93981/files/folder/Past%20year%20exam%20questions?preview=10650555), then import it once on the **Previous exams** page. The public repository contains the workbook interface and Canvas links only; do not commit the course pack, papers or solutions. Exam practice does not use an AI Coach or send student answers to a server.
-
 ## Sources and privacy
 
 The course sequence was checked against [Lecture notes](https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes) and [Lecture notes for Blended learning](https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning) in the current Canvas course. Topic pages link back to the individual packs. Those links require course access. This repository contains original study material and diagrams; the lecture PDFs, project files, assessments and student records remain outside it. Consult Canvas for official course and assessment instructions.

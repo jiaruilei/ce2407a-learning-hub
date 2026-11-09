@@ -1,7 +1,7 @@
 #exam-workbook {max-width:1080px;margin:auto}
 #exam-workbook h1,#exam-workbook h2,#exam-workbook h3 {overflow-wrap:anywhere}
 .wb-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.wb-card,.wb-notes,.wb-part,.wb-data,.wb-import,.wb-solution,.wb-question-list li {border:1px solid var(--edge);border-radius:13px;background:white}
+.wb-card,.wb-notes,.wb-part,.wb-data,.wb-solution,.wb-question-list li {border:1px solid var(--edge);border-radius:13px;background:white}
 .wb-card {display:grid;align-content:start;justify-items:start;gap:10px;padding:20px;background:var(--card)}
 .wb-card h2 a {color:var(--ink);text-decoration:none}
 .wb-card h2 a:hover,.wb-question-list a:hover {text-decoration:underline}
@@ -12,13 +12,10 @@
 .wb-progress {max-width:470px;margin:12px 0 20px}
 .wb-progress span {font-size:.83rem;color:var(--muted)}
 .wb-caption {margin-top:1rem}
-.wb-import,.wb-solution,.wb-data {padding:12px 18px;margin:16px 0}
+.wb-solution,.wb-data {padding:12px 18px;margin:16px 0}
 #exam-workbook summary {display:list-item;padding:3px 0;cursor:pointer;color:var(--darkblue);font-weight:650}
 #exam-workbook summary::-webkit-details-marker {display:inline-block}
-.wb-import summary span {font-weight:400;color:var(--muted)}
-.wb-import p,.wb-solution p,.wb-data dl,.wb-import label {display:block;margin:.5rem 0;font-size:.93rem}
-.wb-import input[type=file] {display:block;max-width:100%;margin-top:7px}
-.wb-import p:empty {display:none}
+.wb-solution p,.wb-data dl {display:block;margin:.5rem 0;font-size:.93rem}
 .wb-question-list {list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
 .wb-question-list li {margin:0}
 .wb-question-list a {display:flex;align-items:baseline;gap:10px;padding:13px 16px;text-decoration:none;font-weight:650}

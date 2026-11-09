@@ -1,4 +1,4 @@
-/* Browser-only workbook. Canvas supplies the source papers and optional course pack. */
+/* Exam revision notes and links to the original papers on Canvas. */
 (() => {
   "use strict";
   const base = "https://canvas.nus.edu.sg/courses/93981/files/folder/Past%20year%20exam%20questions";
@@ -15,7 +15,6 @@
   const route = (paper, number) => "#/exams/" + paper.year + (number ? "/" + number : "");
   let temporary = false;
   let current = null;
-  let importMessage = "";
   function read(key) {
     try {
       const value = memory.has(key) ? memory.get(key) : localStorage.getItem(prefix + key);
@@ -37,7 +36,6 @@
       for (const key of Object.keys(localStorage)) if (key.startsWith(prefix)) localStorage.removeItem(key);
     } catch { /* In-memory changes are cleared below. */ }
     memory.clear();
-    importMessage = "";
     current = null;
   }
   const questionKey = (p, n) => "q." + p.year + "." + n;
@@ -54,23 +52,7 @@
   }
   const paperLink = p => link(base + "?preview=" + p.file, "Exam paper");
   const keyLink = () => link(base + "?preview=10625025", "Numerical solutions");
-  function packLink() {
-    if (!window.EXAM_PACK_URL) return "";
-    try {
-      const url = new URL(window.EXAM_PACK_URL);
-      if (url.protocol === "https:" && url.hostname === "canvas.nus.edu.sg") return link(url.href, "Get course pack on Canvas");
-    } catch { /* A local file can still be imported. */ }
-    return "";
-  }
   const savedPack = () => read("pack") || {};
-  function importBlock(openIfEmpty = false) {
-    const pack = savedPack(), loaded = catalogue.filter(p => pack[p.year]).map(p => p.label);
-    return `<details class="wb-import"${openIfEmpty && !loaded.length ? " open" : ""}><summary>Import course pack <span>(optional)</span></summary>
-      <p>For answer checks and worked steps, open the course pack on Canvas and select <strong>Download</strong>. Then choose the downloaded file below. One import covers all four papers on this browser.</p>
-      ${packLink()}<label>Course file (.json)<input data-wb-import type="file" accept=".json,application/json"></label>
-      <p class="wb-muted">${loaded.length ? "Available on this device: " + esc(loaded.join(", ")) + "." : ""}</p>
-      <p data-wb-import-status role="status">${esc(importMessage)}</p></details>`;
-  }
   function progress(p) {
     let reviewed = 0, flagged = 0;
     for (let n = 1; n <= p.count; n++) {
@@ -83,7 +65,6 @@
   }
   function library() {
     return `<header class="pagehead"><h1>Previous exams</h1><p class="lede">Choose a paper to practise its questions and keep track of your revision.</p></header>
-      ${importBlock(true)}
       <div class="wb-grid">${catalogue.map(p => `<article class="wb-card"><h2><a href="${route(p)}">${esc(p.label)}</a></h2>
         <p class="wb-meta">Semester 1 · ${p.count} questions</p>${progress(p)}
         <a class="button primary" href="${route(p)}">Practise paper<span class="sr-only">, ${esc(p.label)}</span></a>
@@ -98,7 +79,7 @@
         const n = i + 1, s = questionState(p, n), title = pack?.questions?.[i]?.title;
         const state = [s.reviewed ? "Reviewed" : "", s.flagged ? "Flagged for revision" : ""].filter(Boolean).join(" · ");
         return `<li><a href="${route(p,n)}"><span>${title ? "Q" + n + " · " + esc(title) : "Question " + n}</span><small>${esc(state)}</small><span aria-hidden="true">→</span></a></li>`;
-      }).join("")}</ol>${importBlock()}`;
+      }).join("")}</ol>`;
   }
   const decimal = str => {
     const text = String(str ?? "").trim().replace(/^−/, "-");
@@ -120,7 +101,7 @@
       <details class="wb-working"><summary>Show working</summary><ol>${part.working.map(step => "<li>" + esc(step) + "</li>").join("")}</ol></details></section>`;
   }
   function signature(q) {
-    // Re-imported questions may change. Retain personal notes and flags independently.
+    // Older saved exercises identify the version associated with each answer.
     let hash = 2166136261;
     for (const c of JSON.stringify(q)) hash = Math.imul(hash ^ c.charCodeAt(0), 16777619);
     return (hash >>> 0).toString(16);
@@ -140,7 +121,7 @@
       <p class="wb-meta">${esc(p.label)} · Semester 1</p><h1>Question ${n}${q ? " · " + esc(q.title) : ""}</h1>
       <div class="wb-sources">${paperLink(p)}</div></header>
       <nav class="wb-qnav" aria-label="Questions in this paper">${Array.from({length:p.count}, (_, i) => `<a href="${route(p, i+1)}"${i+1 === n ? ' aria-current="page"' : ""}>Q${i+1}</a>`).join("")}</nav>
-      ${!q ? '<p class="wb-guide">Open the exam paper on Canvas and record your working below. To check answers and reveal worked steps here, import the course pack.</p>' + importBlock() : ""}
+      ${!q ? '<p class="wb-guide">Open the exam paper on Canvas, then use the space below to record your working.</p>' : ""}
       ${privateContent}
       <section class="wb-notes"><h2>My working</h2><label for="wb-note">Calculations and revision notes</label>
         <textarea id="wb-note" data-wb-note rows="5" maxlength="30000" aria-describedby="wb-autosave">${esc(s.note)}</textarea>
@@ -149,13 +130,11 @@
         <label><input type="checkbox" data-wb-mark="flagged" ${s.flagged ? "checked" : ""}> Flag for revision</label></div></section>
       <details class="wb-solution"><summary>Compare with the official solution</summary>
         <p>Find ${esc(p.label)}, Question ${n} in the combined Canvas file. Some questions have no published numerical answer.</p>${keyLink()}</details>
-      ${q ? importBlock() : ""}
       <div class="wb-sequence">${n > 1 ? `<a href="${route(p,n-1)}">← Previous question</a>` : ""}
         <a href="${n < p.count ? route(p,n+1) : route(p)}">${n < p.count ? "Next question →" : "Back to paper →"}</a></div>`;
   }
-  let lastRoute = [];
   function render(year, number) {
-    lastRoute = [year, number]; current = null;
+    current = null;
     const p = catalogue.find(p => p.year === String(year));
     let result;
     if (!year && !number) result = library();
@@ -163,41 +142,6 @@
     else if (p && /^[1-9]\d*$/.test(String(number)) && Number(number) <= p.count) result = questionPage(p, Number(number));
     else result = '<h1>Paper or question unavailable</h1><p><a href="#/exams">Browse previous exams</a></p>';
     return `<div id="exam-workbook">${result}<p class="wb-caption" id="workbook-storage" role="status" ${temporary ? "" : "hidden"}>This browser could not save your changes. They are available for this visit.</p></div>`;
-  }
-  function cleanPack(doc) {
-    const fail = () => { throw new Error("The course pack has incomplete or invalid question data."); };
-    function string(s, limit = 12000) {
-      if (typeof s !== "string" || s.length > limit) fail();
-      return s;
-    }
-    function array(a, limit) { if (!Array.isArray(a) || a.length > limit) fail(); return a; }
-    if (!record(doc) || doc.format !== "ce2407a-private-exams-v1" || !record(doc.papers)) throw new Error("Choose a CE2407A exam course pack (.json).");
-    const entries = Object.entries(doc.papers), cleaned = {};
-    if (!entries.length || entries.length > catalogue.length) fail();
-    for (const [year, data] of entries) {
-      const p = catalogue.find(p => p.year === year);
-      if (!p || !record(data) || !Array.isArray(data.questions) || data.questions.length !== p.count) fail();
-      cleaned[year] = {questions:data.questions.map(q => {
-        if (!record(q)) fail();
-        const inputs = array(q.inputs, 120).map(d => {
-          if (!record(d)) fail();
-          return {label:string(d.label,400), value:string(d.value)};
-        });
-        const parts = array(q.parts, 48).map(part => {
-          if (!record(part)) fail();
-          const fields = array(part.fields, 100).map(f => {
-            if (!record(f) || !Number.isFinite(f.answer) || !Number.isFinite(f.tolerance) || f.tolerance < 0) fail();
-            return {label:string(f.label,400),unit:string(f.unit ?? "",180),answer:f.answer,tolerance:f.tolerance};
-          });
-          const working = array(part.working, 120).map(s => string(s));
-          if (!working.length) fail();
-          return {label:string(part.label,300),prompt:string(part.prompt),hint:string(part.hint ?? ""),fields,working};
-        });
-        if (!parts.length) fail();
-        return {title:string(q.title,400), setup:string(q.setup), inputs, parts};
-      })};
-    }
-    return cleaned;
   }
   document.addEventListener("input", e => {
     if (!current || !e.target.closest("#exam-workbook")) return;
@@ -225,35 +169,12 @@
     const live = document.querySelector("#announcement");
     if (live) live.textContent = [...refreshed.querySelectorAll(".wb-verdict")].map(e => e.textContent).join(" ");
   });
-  document.addEventListener("change", async e => {
-    if (!e.target.closest("#exam-workbook")) return;
-    if (current && e.target.matches("[data-wb-mark]")) {
-      const ctx = current, s = questionState(ctx.p,ctx.n);
-      s[e.target.dataset.wbMark] = e.target.checked;
-      write(questionKey(ctx.p,ctx.n),s);
-      return;
-    }
-    if (!e.target.matches("[data-wb-import]") || !e.target.files?.length) return;
-    const picker = e.target, box = picker.closest(".wb-import");
-    try {
-      const file = picker.files[0];
-      if (file.size > 1800000) throw new Error("Choose a course pack smaller than 1.8 MB.");
-      let parsed;
-      try { parsed = JSON.parse((await file.text()).replace(/^\uFEFF/, "")); }
-      catch { throw new Error("The selected file could not be read as JSON."); }
-      const additions = cleanPack(parsed);
-      write("pack", {...savedPack(), ...additions});
-      importMessage = "Imported " + catalogue.filter(p => additions[p.year]).map(p => p.label).join(", ") + ".";
-      if (picker.isConnected) {
-        document.getElementById("exam-workbook").outerHTML = render(...lastRoute);
-        const details = document.querySelector(".wb-import");
-        details.open = true; details.querySelector("summary").focus();
-        const live = document.getElementById("announcement"); if (live) live.textContent = importMessage;
-      }
-    } catch (error) {
-      box.querySelector("[data-wb-import-status]").textContent = error.message;
-      picker.value = "";
-    }
+  document.addEventListener("change", e => {
+    if (!current || !e.target.matches("[data-wb-mark]") || !e.target.closest("#exam-workbook")) return;
+    const {p, n} = current;
+    const state = questionState(p, n);
+    state[e.target.dataset.wbMark] = e.target.checked;
+    write(questionKey(p,n),state);
   });
   window.ExamWorkbook = {render, clear};
 })();
