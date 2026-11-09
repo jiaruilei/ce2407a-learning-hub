@@ -188,15 +188,17 @@
   function route() {
     const hash = location.hash.slice(1);
     const [path,query] = hash.split("?");
-    const [page,chapterId] = path.replace(/^\/+/,"").split("/");
+    const [page,chapterId,questionNo] = path.replace(/^\/+/,"").split("/");
     const chapter = byId(chapterId || new URLSearchParams(query).get("topic"));
-    return { page, chapter };
+    return { page, chapter, examYear:chapterId, questionNo };
   }
   function render(focus = false) {
-    const {page,chapter} = route();
+    const {page,chapter,examYear,questionNo} = route();
     const resourcesView = page === "resources";
+    const examsView = page === "exams";
     let pageTitle = "Topics";
     if (!chapters.length) main.innerHTML = '<h1>The study material could not load</h1><p>Refresh the page to try again.</p>';
+    else if (examsView) { main.innerHTML = window.ExamWorkbook.render(examYear,questionNo); pageTitle = main.querySelector("h1")?.textContent || "Previous exams"; }
     else if (resourcesView) { main.innerHTML = resources(); pageTitle = "Tutorials & resources"; }
     else if (chapter && page === "topic") { main.innerHTML = chapterPage(chapter); pageTitle = chapter.title; }
     else if (chapter && page === "practice") { main.innerHTML = practicePage(chapter); pageTitle = chapter.title + " practice"; }
@@ -205,8 +207,9 @@
     document.title = `${pageTitle} · CE2407A Learning Hub`;
     const topicsNav = document.querySelector("#nav-topics");
     const resourcesNav = document.querySelector("#nav-resources");
-    topicsNav.removeAttribute("aria-current"); resourcesNav.removeAttribute("aria-current");
-    (resourcesView ? resourcesNav : topicsNav).setAttribute("aria-current", resourcesView || !page ? "page" : "location");
+    const examsNav = document.querySelector("#nav-exams");
+    [topicsNav,resourcesNav,examsNav].forEach(nav=>nav.removeAttribute("aria-current"));
+    (examsView ? examsNav : resourcesView ? resourcesNav : topicsNav).setAttribute("aria-current", resourcesView || (examsView && !examYear) || !page ? "page" : "location");
     if (focus) { main.focus({preventScroll:true}); window.scrollTo(0,0); }
   }
   main.addEventListener("submit", event => {
@@ -281,6 +284,7 @@
     clearDialog.close(choice);
     if (choice !== "confirm") return;
     state = freshState();
+    window.ExamWorkbook.clear();
     try { window.localStorage.removeItem(storageKey); } catch { unavailable(); }
     if (location.hash !== "#/") location.hash = "/";
     else render(true);

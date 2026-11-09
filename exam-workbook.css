@@ -1,0 +1,61 @@
+#exam-workbook {max-width:1080px;margin:auto}
+#exam-workbook h1,#exam-workbook h2,#exam-workbook h3 {overflow-wrap:anywhere}
+.wb-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.wb-card,.wb-notes,.wb-part,.wb-data,.wb-import,.wb-solution,.wb-question-list li {border:1px solid var(--edge);border-radius:13px;background:white}
+.wb-card {display:grid;align-content:start;justify-items:start;gap:10px;padding:20px;background:var(--card)}
+.wb-card h2 a {color:var(--ink);text-decoration:none}
+.wb-card h2 a:hover,.wb-question-list a:hover {text-decoration:underline}
+.wb-meta,.wb-muted,.wb-caption,.wb-unit {color:var(--muted);font-size:.88rem}
+.wb-meta {margin:.25rem 0}
+.wb-sources {display:flex;align-items:baseline;gap:6px 18px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.wb-card .wb-progress {width:100%;margin:0}
+.wb-progress {max-width:470px;margin:12px 0 20px}
+.wb-progress span {font-size:.83rem;color:var(--muted)}
+.wb-caption {margin-top:1rem}
+.wb-import,.wb-solution,.wb-data {padding:12px 18px;margin:16px 0}
+#exam-workbook summary {display:list-item;padding:3px 0;cursor:pointer;color:var(--darkblue);font-weight:650}
+#exam-workbook summary::-webkit-details-marker {display:inline-block}
+.wb-import summary span {font-weight:400;color:var(--muted)}
+.wb-import p,.wb-solution p,.wb-data dl,.wb-import label {display:block;margin:.5rem 0;font-size:.93rem}
+.wb-import input[type=file] {display:block;max-width:100%;margin-top:7px}
+.wb-import p:empty {display:none}
+.wb-question-list {list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+.wb-question-list li {margin:0}
+.wb-question-list a {display:flex;align-items:baseline;gap:10px;padding:13px 16px;text-decoration:none;font-weight:650}
+.wb-question-list small {margin-left:auto;color:var(--muted);text-align:right}
+.wb-qnav,.wb-sequence,.wb-marks {display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.wb-qnav {margin:14px 0}
+.wb-qnav a {padding:6px 12px;border-radius:7px;background:white;border:1px solid var(--edge);font-weight:650;text-decoration:none}
+.wb-qnav a[aria-current=page] {background:var(--darkblue);border-color:var(--darkblue);color:white}
+.wb-guide,.wb-setup {margin:13px 0;max-width:78ch}
+.wb-notes,.wb-part {padding:16px 19px;margin:13px 0}
+.wb-notes>label {display:block;margin:9px 0 4px;font-weight:600}
+.wb-notes textarea,.wb-fields input {width:100%;border:1px solid #99aabe;border-radius:7px;padding:8px 10px;font:inherit;color:var(--ink);background:white}
+.wb-notes textarea {resize:vertical;min-height:100px}
+.wb-notes textarea:focus-visible,.wb-fields input:focus-visible {outline:3px solid var(--blue);outline-offset:2px}
+.wb-marks {margin-top:12px;gap:10px 24px}
+.wb-marks label {display:inline-flex;gap:7px;align-items:center;cursor:pointer;font-size:.9rem}
+.wb-marks input {width:17px;height:17px;accent-color:var(--blue)}
+.wb-sequence {margin-top:16px;justify-content:space-between}
+.wb-sequence a:only-child {margin-left:auto}
+.wb-setup,.wb-data dd,.wb-part>p,.wb-working li {white-space:pre-line;overflow-wrap:anywhere}
+.wb-data dl {display:grid;gap:8px}
+.wb-data dl>div {display:grid;grid-template-columns:minmax(8rem,1fr) minmax(0,2fr);gap:10px;border-top:1px solid var(--edge);padding:7px 0}
+.wb-data dt {font-weight:650}
+.wb-data dd {margin:0}
+.wb-fields {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;margin:12px 0}
+.wb-fields label {min-width:0;font-weight:600;font-size:.91rem}
+.wb-fields input {display:block;min-height:42px;margin:4px 0}
+.wb-fields small {display:block;font-weight:400}
+.wb-unit {font-weight:400}
+.wb-verdict {display:block;font-weight:650}
+.wb-verdict.right {color:#06644d}
+.wb-verdict.retry {color:#a23f19}
+.wb-working,.wb-hint,.wb-part>p {margin-top:.6rem}
+.wb-working {background:#eff5fb;border-radius:7px;padding:8px 12px}
+.wb-working ol {padding:0 0 0 1.35rem;margin:.5rem 0}
+@media(max-width:620px) {
+  .wb-grid,.wb-fields {grid-template-columns:1fr}
+  .wb-card,.wb-notes,.wb-part {padding:15px}
+  .wb-data dl>div {grid-template-columns:1fr;gap:3px}
+}
