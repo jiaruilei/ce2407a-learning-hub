@@ -74,7 +74,7 @@
       prompt: "Single-day demand is normal with mean 12 ML and standard deviation 2 ML. If the daily values are independent, what is the chance that demand exceeds 16 ML on at least one of three days?",
       answer: "The daily probability of staying within capacity is Φ(2) ≈ 0.97725. All three days stay within capacity with probability 0.97725³. At least one exceeds it with probability 1 − 0.97725³ ≈ 0.0667."
     },
-    next: "Lecture 6 connects counts and waiting times to the process that produces them.",
+    next: "Lecture 6 introduces four distributions for modelling events in repeated trials, over time or along a length.",
     practice: [
       {prompt: "A load is normal with mean 80 kN and standard deviation 10 kN. Which expression gives the probability that it exceeds 95 kN?", options: ["Φ(1.5)", "1 − Φ(0.15)", "1 − Φ(1.5)", "Φ(9.5)"], correct: 2, explain: "The threshold is 1.5 standard deviations above the mean. Exceedance is the upper tail."},
       {prompt: "Normal daily flow has mean 30 L/s and SD 4 L/s. Which capacity is exceeded on about 5% of days? Use z₀.₉₅ = 1.645.", options: ["36.58 L/s", "23.42 L/s", "31.65 L/s", "34.00 L/s"], correct: 0, explain: "Use the upper 95th percentile, 30 + 1.645 × 4 = 36.58 L/s."},
@@ -90,19 +90,19 @@
   },
   {
     id: 6,
-    title: "Counts and waiting times",
+    title: "Binomial, geometric, Poisson and exponential distributions",
     section: "Lecture notes",
-    summary: "Match the model to two choices. Does the process run in trials or continuously in time or distance? Are you counting occurrences or waiting for the first one?",
+    summary: "Which distribution fits the engineering question? Compare the number of defective bolts in a batch, the number of inspections until the first defect, the number of cracks along a weld and the distance between successive cracks.",
     goals: [
       "Choose between binomial, geometric, Poisson and exponential distributions.",
       "Convert an event rate into an expected count over a stated exposure.",
-      "Relate the probability of no occurrences to the distribution of the first waiting time."
+      "Use the probability of zero events in an interval to find the distribution of the time or distance to the next event."
     ],
     ideas: [
       {name: "Fixed number of trials", text: "In a Bernoulli sequence each trial gives success or failure, trials are independent and success probability p stays constant. Over n trials the success count X is binomial. The coefficient C(n,k) counts arrangements with k successes.", formula: "P(X = k) = C(n,k) pᵏ (1 − p)ⁿ⁻ᵏ     ·     E[X] = np     ·     Var(X) = np(1 − p)"},
       {name: "Trials to the first occurrence", text: "In the same sequence, let K count trials up to and including the first success. Its support starts at 1. With 0 < p ≤ 1, the first success at trial k requires k − 1 earlier failures.", formula: "P(K = k) = (1 − p)ᵏ⁻¹p     ·     P(K > n) = (1 − p)ⁿ     ·     E[K] = 1/p"},
       {name: "Count over an exposure", text: "A homogeneous Poisson process has a constant rate ν, independent counts in disjoint intervals and negligible chance of multiple arrivals in a sufficiently short interval relative to its length. For an exposure t, m = νt is the expected count. Match the units of ν and t.", formula: "P(N(t) = k) = exp(−m) mᵏ/k!     ·     E[N(t)] = Var(N(t)) = m"},
-      {name: "Continuous wait to the first occurrence", text: "For that same Poisson process, the wait T exceeds t exactly when no event occurs during exposure t. This yields the exponential waiting-time distribution. Its mean 1/ν has units of time or distance.", formula: "P(T > t) = exp(−νt)     ·     F(t) = 1 − exp(−νt) for t ≥ 0     ·     E[T] = 1/ν"}
+      {name: "Time or distance to the next event", text: "In a homogeneous Poisson process, T is the time or distance to the next event. T exceeds t exactly when the interval of length t contains no events. For a crack rate ν measured per metre, T is measured in metres and its mean is 1/ν.", formula: "P(T > t) = exp(−νt)     ·     F(t) = 1 − exp(−νt) for t ≥ 0     ·     E[T] = 1/ν"}
     ],
     example: {
       prompt: "Service calls to a pump station follow a homogeneous Poisson process at 0.30 calls per hour. Find the chance of two calls in four hours, and the chance that the first call comes after four hours.",

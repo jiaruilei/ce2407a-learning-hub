@@ -9,7 +9,7 @@ A revision companion for **CE2407A Uncertainty Analysis for Engineers**, based o
 | Topics | What to practise | Source |
 | --- | --- | --- |
 | 1–3 | Engineering uncertainty, events, conditional probability and Bayes | Lecture notes 1–3 |
-| 4–7 | Random variables, normal and lognormal models, event counts and waiting times, and functions of random variables | Lecture notes 4–7 |
+| 4–7 | Random variables; normal and lognormal distributions; binomial, geometric, Poisson and exponential distributions; functions of random variables | Lecture notes 4–7 |
 | 8–9 | Point estimates and sampling distributions | Blended-learning L1–L2 |
 | 10–11 | Confidence intervals and tests for a mean or a variance | Blended-learning L3 |
 | 12–13 | Goodness of fit and simple linear regression | Blended-learning L4–L5 |
