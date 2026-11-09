@@ -1,6 +1,6 @@
 # CE2407A Learning Hub
 
-[Open the learning hub](https://jiaruilei.github.io/ce2407a-learning-hub/) · [Choose a method](https://jiaruilei.github.io/ce2407a-learning-hub/study-guide.html) · [Probability workbench](https://jiaruilei.github.io/ce2407a-learning-hub/workbench.html)
+[Open the learning hub](https://jiaruilei.github.io/ce2407a-learning-hub/)
 
 A revision companion for **CE2407A Uncertainty Analysis for Engineers**, based on the AY 2026/27 Semester 1 materials. Students can work through an engineering example, practise a calculation, check their reasoning and return to the relevant notes on Canvas.
 
@@ -14,7 +14,7 @@ A revision companion for **CE2407A Uncertainty Analysis for Engineers**, based o
 | 10–11 | Confidence intervals and tests for a mean or a variance | Blended-learning L3 |
 | 12–13 | Goodness of fit and simple linear regression | Blended-learning L4–L5 |
 
-Each of the 13 topics includes a worked example, a guided question, common mistakes and a short self-check with explanations. The 59 original questions include 28 typed calculations and 31 multiple-choice questions. Each has an optional hint. Students can resume practice in the same browser and retry missed questions. The three workbench experiments explore Bayes’ theorem, structural safety margins and confidence intervals. The method chooser connects common modelling decisions to the reviews.
+Each of the 13 topics includes a worked example, a guided question, common mistakes and a short self-check with explanations. The 59 original questions include 28 typed calculations and 31 multiple-choice questions. Each has an optional hint. Students can resume practice in the same browser and retry missed questions.
 
 The existing digital tutorials remain independent applications. Open a full set below or use a question link from the corresponding topic:
 
@@ -32,4 +32,4 @@ The hub follows the review and practice format of the [CE2134 Learning Hub](http
 
 This is a static HTML, CSS and JavaScript site with no package installation or build step. Open `index.html` or serve the repository root with `python -m http.server 8000 --bind 127.0.0.1`. For GitHub Pages, publish the repository root on `main`.
 
-Topic content lives in `chapters-a.js` (1–3), `chapters-b.js` (4–7) and `chapters-c.js` (8–13). The hints, numeric units and accepted tolerances in `practice-format.js` must match the question order in those files. Update shared resource links and workbench links in `resources.js`. When updating for another semester, check the current Canvas folder and file IDs: the hub's topic numbering is distinct from the five blended pack numbers.
+Topic content lives in `chapters-a.js` (1–3), `chapters-b.js` (4–7) and `chapters-c.js` (8–13). The hints, numeric units and accepted tolerances in `practice-format.js` must match the question order in those files. Update shared resource links in `resources.js`. When updating for another semester, check the current Canvas folder and file IDs: the hub's topic numbering is distinct from the five blended pack numbers.

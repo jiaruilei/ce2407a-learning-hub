@@ -117,7 +117,7 @@
   }
   function home() {
     const sections = [...new Set(chapters.map(c => c.section))];
-    return heading("Topics", '<p class="lede">Review a chapter and check your understanding. For mixed problems, <a href="study-guide.html">choose a method</a> or <a href="workbench.html">explore the interactive workbench</a>.</p>') + sections.map(section =>
+    return heading("Topics", '<p class="lede">Review a chapter and check your understanding.</p>') + sections.map(section =>
       `<section class="group"><h2 class="group-heading">${esc(section)}</h2><div class="grid">${chapters.filter(c => c.section === section).map(card).join("")}</div></section>`
     ).join("");
   }
@@ -140,9 +140,9 @@
     const subsequent = chapters[chapters.indexOf(c) + 1];
     const diagram = diagrams[c.id];
     const tutorials = (c.tutorials||[]).map(item => resourceLink(item)).join("");
-    const external = [c.source ? resourceLink(c.source) : "", tutorials, c.lab ? resourceLink(c.lab) : ""].join("");
+    const external = (c.source ? resourceLink(c.source) : "") + tutorials;
     const s = validSession(c);
-    return `${back}<header class="review-header"><div><div class="topic-title">${icon(c.id)}<div><div class="minor">Chapter ${number(c.id)} · ${esc(c.section)}</div><h1>${esc(c.title)}</h1></div></div><p class="lede">${esc(c.summary)}</p></div><div class="actions"><a class="button selected" href="${topicUrl(c.id)}" aria-current="page">Review</a><a class="button primary" href="${practiceUrl(c.id)}" data-start="${c.id}">${currentLabel(s)}</a>${c.lab ? resourceLink(c.lab, "Explore", "button", c.lab.label) : ""}</div></header>
+    return `${back}<header class="review-header"><div><div class="topic-title">${icon(c.id)}<div><div class="minor">Chapter ${number(c.id)} · ${esc(c.section)}</div><h1>${esc(c.title)}</h1></div></div><p class="lede">${esc(c.summary)}</p></div><div class="actions"><a class="button selected" href="${topicUrl(c.id)}" aria-current="page">Review</a><a class="button primary" href="${practiceUrl(c.id)}" data-start="${c.id}">${currentLabel(s)}</a></div></header>
       <div class="layout"><div class="stack">
       ${details("Learning objectives", list(c.goals))}
       <section class="panel"><div class="section-top"><h2>Key concepts & equations</h2>${diagram ? '<button class="text-action" type="button" data-action="enlarge" aria-haspopup="dialog">Enlarge diagram</button>' : ""}</div><div class="concept-layout">${figure(c)}<div class="ideas">${c.ideas.map(idea => `<article class="idea"><h3>${esc(idea.name)}</h3>${idea.formula ? `<span class="formula">${esc(idea.formula)}</span>` : ""}<p>${esc(idea.text)}</p></article>`).join("")}</div></div></section>

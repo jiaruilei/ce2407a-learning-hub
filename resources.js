@@ -7,21 +7,9 @@
     {label:"Set 3 · Estimation and hypothesis testing", detail:"6 exercises · Estimate a parameter, plan a sample, and test claims about means and variability.",url:"https://jiaruilei.github.io/CE2407A_Tutorial3/"}
   ];
   window.RESOURCES = [
-    {label:"Choose a method",detail:"Start with the engineering question. Check the assumptions and choose a probability model or inference procedure.",url:"study-guide.html"},
-    {label:"Probability workbench",detail:"Change an inspection rate, load correlation or sample size. Predict how the result will change, then move a control to check.",url:"workbench.html"},
     {label:"Lecture notes",detail:"Canvas · The seven numbered probability lectures. NUS course access required.",url:notes},
     {label:"Blended-learning notes",detail:"Canvas · Five video lecture packs on estimation, sampling, inference, goodness of fit and regression. NUS course access required.",url:files+"Lecture%20notes%20for%20Blended%20learning"},
     {label:"Formula list",detail:"Canvas · The course formula reference. Use it alongside the assumptions for each model. NUS course access required.",url:notes+"?preview=10625175"},
-    {label:"Statistical tables",detail:"Canvas · Look up distribution values and check which tail a table reports. NUS course access required.",url:notes+"?preview=10369033"},
-    {label:"Introduction to MATLAB",detail:"Canvas · Sampling, density histograms, empirical CDFs and estimating failure probabilities by simulation. NUS course access required.",url:notes+"?preview=10381763"},
-    {label:"MATLAB project brief",detail:"Canvas · Use the current course brief for the project requirements. NUS course access required.",url:notes+"?preview=10500872"}
+    {label:"Statistical tables",detail:"Canvas · Look up distribution values and check which tail a table reports. NUS course access required.",url:notes+"?preview=10369033"}
   ];
-  const byId = new Map(window.CHAPTERS.map(c => [c.id, c]));
-  for (const [ids, label, fragment] of [
-    [[2,3], "Inspect a test result", "bayes"],
-    [[4,5,7], "Explore the safety margin", "margin"],
-    [[8,9,10], "Change the sample size", "interval"]
-  ]) {
-    for (const id of ids) if (byId.has(id)) byId.get(id).lab = {label,url:"workbench.html#"+fragment};
-  }
 })();
