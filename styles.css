@@ -37,10 +37,12 @@ main {min-height:440px;padding:28px;background:var(--wash);outline:none}
 .card {border:1px solid #c5dcf6;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0;background:var(--card)}
 .card:hover {border-color:#a9c4ee;box-shadow:0 4px 14px #0f172a0f}
 .card-main {display:block;flex:1;padding:16px 18px 5px;color:var(--ink);text-decoration:none}
-.card-main:hover h3 {text-decoration:underline;text-underline-offset:4px}
+.card-main h3 a {color:var(--ink);text-decoration:none}
+.card-main h3 a:hover {text-decoration:underline;text-underline-offset:4px}
 .card-main h3 {font-size:1.17rem;margin:.55rem 0 .3rem;letter-spacing:-.022em}
 .card-top,.progress-line,.review-header,.dialog-head,.practice-top,.section-top {display:flex;align-items:center;justify-content:space-between;gap:12px}
-.number,.card-state,.progress-line,.minor {font-size:.78rem;color:var(--muted)}
+.note-link {display:inline-flex;align-items:center;gap:.25em;min-height:32px;color:var(--darkblue);font-size:.8rem;font-weight:600;text-underline-offset:.2em}
+.card-state,.progress-line,.minor {font-size:.78rem;color:var(--muted)}
 .chapter-icon {width:44px;height:44px;border-radius:10px;background:#fff;color:#2161c4;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .chapter-icon svg {width:32px;height:32px}
 .status-block {padding:6px 18px 11px}

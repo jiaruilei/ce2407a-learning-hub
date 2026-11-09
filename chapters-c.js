@@ -4,7 +4,7 @@
     id: 8,
     title: "Point estimation",
     section: "Blended learning",
-    source: { label: "Blended L1 · Point estimation", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491764" },
+    source: { ref: "L1", label: "Blended L1 · Point estimation", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491764" },
     summary: "Use a sample to estimate a physical quantity or a parameter in a probability model. The units of the estimate provide a quick check on the algebra.",
     goals: [
       "Distinguish the population parameter, its estimator and the observed estimate.",
@@ -39,7 +39,7 @@
     id: 9,
     title: "Sampling distributions",
     section: "Blended learning",
-    source: { label: "Blended L2 · Sampling distributions", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491765" },
+    source: { ref: "L2", label: "Blended L2 · Sampling distributions", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491765" },
     summary: "Imagine repeating the same sampling procedure many times. The distribution of the resulting statistic tells you how much an estimate can fluctuate.",
     goals: [
       "Calculate the mean and standard error of a sample mean.",
@@ -74,7 +74,7 @@
     id: 10,
     title: "Inference for a mean",
     section: "Blended learning",
-    source: { label: "Blended L3 · Statistical inferences", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491766" },
+    source: { ref: "L3", label: "Blended L3 · Statistical inferences", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491766" },
     summary: "Estimate a population mean with a confidence interval, or test an engineering claim by measuring the discrepancy in standard errors.",
     goals: [
       "Build a confidence interval using the appropriate reference distribution.",
@@ -114,7 +114,7 @@
     id: 11,
     title: "Inference for a variance",
     section: "Blended learning",
-    source: { label: "Blended L3 · Statistical inferences", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491766" },
+    source: { ref: "L3", label: "Blended L3 · Statistical inferences", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491766" },
     summary: "A production line can meet its target mean while delivering an inconsistent product. Use a sample variance to assess the variability of a normal population.",
     goals: [
       "Distinguish a specification for standard deviation from one for variance.",
@@ -152,7 +152,7 @@
     id: 12,
     title: "Goodness of fit",
     section: "Blended learning",
-    source: { label: "Blended L4 · Goodness of fit test", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491767" },
+    source: { ref: "L4", label: "Blended L4 · Goodness of fit test", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491767" },
     summary: "Compare observed counts with the frequencies predicted by a proposed probability model. A poor fit appears as discrepancies that are large relative to the expected counts.",
     goals: [
       "Convert model probabilities into expected frequencies, including the end tails.",
@@ -188,7 +188,7 @@
     id: 13,
     title: "Regression analysis",
     section: "Blended learning",
-    source: { label: "Blended L5 · Regression analysis", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491768" },
+    source: { ref: "L5", label: "Blended L5 · Regression analysis", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes%20for%20Blended%20learning?preview=10491768" },
     summary: "Fit a line to paired measurements, use it to predict the mean response, and check how much of the observed variation the line explains.",
     goals: [
       "Calculate and interpret the least-squares slope and intercept, including their units.",

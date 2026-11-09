@@ -17,7 +17,7 @@
       pitfall: "A histogram bar height is not always a probability. For a density histogram, multiply by the bin width.",
       activity: {prompt: "A contractor tests 20 more cores from the same population. Should the individual strengths now be less variable?", answer: "No. A representative larger sample can estimate the population properties more precisely. It does not make the material itself more uniform."},
       next: "Use events and sets to turn a phrase such as “at least one limit is exceeded” into an unambiguous calculation.",
-      tutorials: [], source:{label:"Lecture 1 · Introduction",url:canvas+"10172906"},
+      tutorials: [], source:{ref: "01", label:"Lecture 1 · Introduction",url:canvas+"10172906"},
       practice: [
         q("Identical test procedures give different strengths at different positions in a heterogeneous slab. What does the physical variation illustrate?",["Aleatory variability","Uncertainty about the sample mean only","An arithmetic error","A guaranteed change in the design threshold"],0,"The material varies across space even if testing is exact. More data can reveal that variation without eliminating it."),
         q("A 5 kN-wide bin contains 12 of 60 tests. What is its density height?",["0.20 kN⁻¹","1.0 kN⁻¹","0.04 kN⁻¹","2.4 kN⁻¹"],2,"Its area is 12/60 = 0.20. Divide by 5 kN to get 0.04 kN⁻¹."),
@@ -39,7 +39,7 @@
       pitfall:"“Or” usually includes the overlap. “Exactly one” excludes it. Sketch the two regions before choosing the arithmetic.",
       activity:{prompt:"Two pumps provide redundancy: either pump alone can meet demand. Let A and B mean that the respective pumps fail. What is the system failure event? Does defining it require independence?",answer:"System failure is A ∩ B, because both pumps must fail. Independence is unnecessary to specify the event; multiplying P(A) by P(B) to calculate its probability would require it."},
       next:"Conditioning changes the reference population. That is how we update failure probabilities after a warning.",
-      tutorials:[{label:"Set 1 · Q1: alternative routes",url:set1+"1"},{label:"Set 1 · Q2: wind events",url:set1+"2"},{label:"Set 1 · Q3: power plant",url:set1+"3"}],source:{label:"Lecture 2 · Probability (1)",url:canvas+"10172907"},
+      tutorials:[{label:"Set 1 · Q1: alternative routes",url:set1+"1"},{label:"Set 1 · Q2: wind events",url:set1+"2"},{label:"Set 1 · Q3: power plant",url:set1+"3"}],source:{ref: "02", label:"Lecture 2 · Probability (1)",url:canvas+"10172907"},
       practice:[
         q("If A means excessive deflection and B means cracking, what does (A ∪ B)ᶜ mean?",["Neither limit is reached","Only A occurs","At least one occurs","Both occur"],0,"Taking the complement of “at least one” leaves exactly those outcomes with neither event."),
         q("P(A)=0.30, P(B)=0.20 and P(A ∩ B)=0.12. Find P(A ∪ B).",["0.50","0.62","0.38","0.06"],2,"The union is 0.30 + 0.20 − 0.12 = 0.38."),
@@ -61,7 +61,7 @@
       pitfall:"A test’s sensitivity, P(+ | defect), is not the chance that a flagged item is defective. The latter also depends on prevalence and false alarms.",
       activity:{prompt:"Keep the two defect rates in the example fixed, but let line B supply only 10% of the anchors. Predict the direction of the update, then calculate P(B | defect).",answer:"Line B supplies fewer anchors, so its share of the defects falls. Its defect branch is 0.10 × 0.08 = 0.008; the other is 0.90 × 0.02 = 0.018. The posterior is 0.008/0.026 ≈ 30.8%."},
       next:"A random variable assigns a number to each outcome. A probability distribution collects those numerical outcomes and their probabilities.",
-      tutorials:[{label:"Set 1 · Q4: pollution",url:set1+"4"},{label:"Set 1 · Q5: pavement",url:set1+"5"},{label:"Set 1 · Q6: earthquakes and liquefaction",url:set1+"6"},{label:"Set 1 · Q7: detectors",url:set1+"7"}],source:{label:"Lecture 3 · Probability (2)",url:canvas+"10172908"},
+      tutorials:[{label:"Set 1 · Q4: pollution",url:set1+"4"},{label:"Set 1 · Q5: pavement",url:set1+"5"},{label:"Set 1 · Q6: earthquakes and liquefaction",url:set1+"6"},{label:"Set 1 · Q7: detectors",url:set1+"7"}],source:{ref: "03", label:"Lecture 3 · Probability (2)",url:canvas+"10172908"},
       practice:[
         q("A warning occurs on 20% of days. Heavy inflow and a warning occur together on 6% of days. Find P(heavy inflow | warning).",["0.012","0.26","0.30","0.80"],2,"Among warning days the heavy-inflow share is 0.06/0.20 = 0.30."),
         q("Independent trips have delay probabilities 0.10 and 0.20. What is the probability that at least one is delayed?",["0.28","0.30","0.02","0.72"],0,"The probability of no delay is 0.90 × 0.80 = 0.72; its complement is 0.28."),

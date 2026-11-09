@@ -42,7 +42,7 @@
       {label: "Set 2 Q1 · Contractor bids", url: "https://jiaruilei.github.io/CE2407A_Tutorial2/?question=q1"},
       {label: "Set 2 Q2 · Density and moments", url: "https://jiaruilei.github.io/CE2407A_Tutorial2/?question=q2"}
     ],
-    source: {label: "Lecture 4 · Random variables", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes?preview=10331143"}
+    source: {ref: "04", label: "Lecture 4 · Random variables", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes?preview=10331143"}
   },
   {
     id: 5,
@@ -86,7 +86,7 @@
       {label: "Set 2 Q3 · Airport capacity", url: "https://jiaruilei.github.io/CE2407A_Tutorial2/?question=q3"},
       {label: "Set 2 Q4 · Annual flood risk", url: "https://jiaruilei.github.io/CE2407A_Tutorial2/?question=q4"}
     ],
-    source: {label: "Lecture 5 · Distribution (1)", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes?preview=10331144"}
+    source: {ref: "05", label: "Lecture 5 · Distribution (1)", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes?preview=10331144"}
   },
   {
     id: 6,
@@ -130,7 +130,7 @@
       {label: "Set 2 Q5 · Stations and fuel range", url: "https://jiaruilei.github.io/CE2407A_Tutorial2/?question=q5"},
       {label: "Set 2 Q6 · Lock cycle and waiting", url: "https://jiaruilei.github.io/CE2407A_Tutorial2/?question=q6"}
     ],
-    source: {label: "Lecture 6 · Distribution (2)", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes?preview=10381762"}
+    source: {ref: "06", label: "Lecture 6 · Distribution (2)", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes?preview=10381762"}
   },
   {
     id: 7,
@@ -175,6 +175,6 @@
       {label: "Set 2 Q8 · Beam reliability", url: "https://jiaruilei.github.io/CE2407A_Tutorial2/?question=q8"},
       {label: "Set 2 Q9 · Column sizing", url: "https://jiaruilei.github.io/CE2407A_Tutorial2/?question=q9"}
     ],
-    source: {label: "Lecture 7 · Functions of random variables", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes?preview=10381765"}
+    source: {ref: "07", label: "Lecture 7 · Functions of random variables", url: "https://canvas.nus.edu.sg/courses/93981/files/folder/Lecture%20notes?preview=10381765"}
   }
 );

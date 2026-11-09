@@ -14,6 +14,8 @@ A revision companion for **CE2407A Uncertainty Analysis for Engineers**, based o
 | 10–11 | Confidence intervals and tests for a mean or a variance | Blended-learning L3 |
 | 12–13 | Goodness of fit and simple linear regression | Blended-learning L4–L5 |
 
+The link in the upper-right corner of each topic card opens its Canvas lecture pack. Lecture Notes 01–07 follow the numbered PDFs. The blended-learning packs use their Canvas labels L1–L5; both inference topics link to L3, *Statistical inferences*.
+
 Each of the 13 topics includes a worked example, a guided question, common mistakes and a short self-check with explanations. The 59 original questions include 28 typed calculations and 31 multiple-choice questions. Each has an optional hint. Students can resume practice in the same browser and retry missed questions.
 
 The existing digital tutorials remain independent applications. Open a full set below or use a question link from the corresponding topic:
