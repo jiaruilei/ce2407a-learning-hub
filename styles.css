@@ -139,6 +139,9 @@ dialog>p {margin:12px 0 18px}
 dialog .actions {justify-content:flex-end}
 .diagram-dialog {width:min(760px,calc(100% - 22px))}
 .dialog-head {margin-bottom:12px}
+#diagram-view {overflow:auto}
+#diagram-view .chart-wrap svg {min-width:500px}
+#diagram-view:focus-visible {outline:3px solid #457df2;outline-offset:2px}
 .sr-only,.skip:not(:focus) {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .skip:focus {position:fixed;top:10px;left:12px;background:white;padding:10px;z-index:10}
 @media (max-width:1000px) {.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:minmax(0,1fr) 190px}.concept-layout{grid-template-columns:1fr}}
